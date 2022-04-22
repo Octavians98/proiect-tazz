@@ -1,0 +1,4 @@
+export enum ACTION_TYPE {
+  PICKUP = 'PICKUP',
+  DELIVERY = 'DELIVERY',
+}
