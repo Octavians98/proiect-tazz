@@ -1,10 +1,25 @@
-import { Controller, Get, Post } from '@nestjs/common';
-
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
+import { CreateAssignmentsResponse } from 'src/shared/presentation/assignments.response';
+import { CreateAssignmentsRequest } from 'src/shared/presentation/create.assignments.request';
+import { OrdersDispatcherService } from './orders-dispatcher.service';
 @Controller('orders-dispatcher')
 export class OrdersDispatcherController {
+  constructor(
+    private readonly orderDispatcherService: OrdersDispatcherService,
+  ) {}
   @Post()
-  create(): string {
-    return 'This actions does nothing lol';
+  @HttpCode(HttpStatus.OK)
+  createAssignments(
+    @Body() createAssignmentsRequest: CreateAssignmentsRequest,
+  ): Promise<CreateAssignmentsResponse> {
+    return this.orderDispatcherService.assignOrders(createAssignmentsRequest);
   }
 
   @Get()
