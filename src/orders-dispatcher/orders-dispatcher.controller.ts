@@ -6,8 +6,8 @@ import {
   HttpStatus,
   Post,
 } from '@nestjs/common';
-import { CreateAssignmentsResponse } from 'src/shared/presentation/assignments.response';
-import { CreateAssignmentsRequest } from 'src/shared/presentation/create.assignments.request';
+import { CreateAssignmentsResponse } from '../shared/presentation/assignments.response';
+import { CreateAssignmentsRequest } from '../shared/presentation/create.assignments.request';
 import { OrdersDispatcherService } from './orders-dispatcher.service';
 @Controller('orders-dispatcher')
 export class OrdersDispatcherController {
@@ -24,6 +24,6 @@ export class OrdersDispatcherController {
 
   @Get()
   findAll(): string {
-    return 'This action also does nothing LOL';
+    return 'The GET endpoint is not implemented. In order to test the code send your request to http://localhost:3000/orders-dispatcher';
   }
 }
